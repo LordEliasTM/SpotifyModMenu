@@ -1,0 +1,21 @@
+// ==UserScript==
+// @name         Spotify ad skipper
+// @namespace    http://tampermonkey.net/
+// @version      3.4
+// @description  Detects and skips ads on spotify
+// @author       LordElias
+// @match        https://*.spotify.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=spotify.com
+// @grant        GM_addStyle
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_xmlhttpRequest
+// @run-at       document-start
+
+// @connect      google.com
+// @connect      azlyrics.com
+
+// @require      https://code.jquery.com/jquery-3.7.0.min.js
+// @require      https://gist.githubusercontent.com/LordEliasTM/d97d7e942f661b68f5cdb8343f9e256c/raw/74011788cd75611b7ab8056a8d2d728a38a14ad5/querySelectorAsync.js
+// @require      https://update.greasyfork.org/scripts/472236/1249646/GM%20Fetch.js
+// ==/UserScript==

@@ -1,3 +1,4 @@
+import fs from "fs/promises"
 import esbuild from "esbuild"
 import packageJson from "../package.json" with { type: "json" };
 
@@ -24,8 +25,17 @@ const commonOptions = {
 const buildOptions = {
   ...commonOptions,
   
-  outfile: "build/main.js",
-  //sourcemap: "inline",
+  outfile: `build/${packageJson.name}.js`,
+}
+
+/** @type {import("esbuild").BuildOptions} */
+const buildOptionsUserscript = {
+  ...commonOptions,
+  
+  outfile: `build/${packageJson.name}.userscript.js`,
+  banner: {
+    js: (await fs.readFile("src/banner.txt")).toString(),
+  },
 }
 
 if(watch) {
@@ -34,4 +44,5 @@ if(watch) {
 }
 else {
   esbuild.build(buildOptions);
+  esbuild.build(buildOptionsUserscript);
 }
